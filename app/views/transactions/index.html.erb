@@ -4,11 +4,14 @@
 
 <div id="transactions">
   <% @transactions.each do |transaction| %>
-    <%= render transaction %>
-    <p>
-      <%= link_to "Show this transaction", transaction %>
-    </p>
+    <div class="transaction">
+      <div id="amount">
+        <%= '-' unless transaction.deposit %>
+        <%= transaction.amount %>
+      </div>
+      <div id="comment"> <%= transaction.comment %> </div>
+      <div id="executor"> <%= transaction.executor %> </div>
+    </div>
+
   <% end %>
 </div>
-
-<%= link_to "New transaction", new_transaction_path %>

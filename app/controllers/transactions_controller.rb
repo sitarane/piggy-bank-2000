@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  before_action :set_transaction, only: %i[ show edit update destroy ]
+  before_action :set_transaction, only: %i[ show destroy ]
 
   # GET /transactions
   def index
@@ -17,10 +17,6 @@ class TransactionsController < ApplicationController
 
   end
 
-  # GET /transactions/1/edit
-  def edit
-  end
-
   # POST /transactions
   def create
     @transaction = Transaction.new(transaction_params)
@@ -29,15 +25,6 @@ class TransactionsController < ApplicationController
       redirect_to @transaction, notice: "Transaction was successfully created."
     else
       render :new, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /transactions/1
-  def update
-    if @transaction.update(transaction_params)
-      redirect_to @transaction, notice: "Transaction was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
     end
   end
 

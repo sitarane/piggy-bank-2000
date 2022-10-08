@@ -31,3 +31,17 @@
 button {
   margin: 5px;
 }
+div#transactions {
+  display: flex;
+  flex-direction: column;
+}
+div#transactions div.transaction {
+  display: flex;
+  gap: 10px;
+}
+div.transaction div#amount{
+  flex-basis: 3em;
+}
+div.transaction div#comment{
+  flex-grow: 2;
+}
