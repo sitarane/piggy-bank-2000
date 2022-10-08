@@ -13,6 +13,8 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new(transaction_params)
+    @deposit = ActiveModel::Type::Boolean.new.cast(transaction_params[:deposit])
+
   end
 
   # GET /transactions/1/edit
@@ -53,6 +55,6 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:amount, :deposit, :executor)
+      params.require(:transaction).permit(:amount, :comment, :deposit, :executor)
     end
 end
