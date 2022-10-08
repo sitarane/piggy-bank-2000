@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+ div#credit-container {
+   margin-top: 2em;
+   display: flex;
+   flex-direction: column;
+ }
+ div#buttons {
+   display: flex;
+   justify-content: center;
+ }
+ div#credit {
+   font-size: xx-large;
+   font-weight: bold;
+   text-align: center;
+ }
+button {
+  margin: 5px;
+}
