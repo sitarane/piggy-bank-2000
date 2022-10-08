@@ -1,7 +1,13 @@
 <div id=credit-container>
   <div id='credit'><%= @credit %> €</div>
   <div id='buttons'>
-    <button>Withdraw</button>
-    <button>Deposit</button>
+    <%= button_to 'Withdraw',
+                  new_transaction_path,
+                  method: :get,
+                  params: { transaction: { deposit: false } } %>
+    <%= button_to 'Deposit',
+                  new_transaction_path,
+                  method: :get,
+                  params: { transaction: { deposit: true } } %>
   </div>
 </div>
