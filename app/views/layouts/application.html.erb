@@ -11,6 +11,24 @@
   </head>
 
   <body>
-    <%= yield %>
+       <header>
+      <nav>
+        <%= link_to 'Bank', root_path unless controller_name == "bank" %>
+        <%= link_to 'All transactions', transactions_path %>
+      </nav>
+    </header>
+    <main>
+      <% if notice %>
+        <blockquote>
+          <%= notice %>
+        </blockquote>
+      <% end %>
+      <% if alert %>
+        <mark>
+          <%= alert %>
+        </mark>
+      <% end %>
+      <%= yield %>
+    </main>
   </body>
 </html>
