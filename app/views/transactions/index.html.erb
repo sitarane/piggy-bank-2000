@@ -5,6 +5,7 @@
 <div id="transactions">
   <% @transactions.each do |transaction| %>
     <div class="transaction">
+      <div id="date"> <%= transaction.created_at.to_date %> </div>
       <div id="amount">
         <%= '-' unless transaction.deposit %>
         <%= transaction.amount %>
