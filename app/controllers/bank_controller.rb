@@ -2,7 +2,9 @@ class BankController < ApplicationController
   def show
     date_of_birth = Date.new(2013, 07, 04)
     allowance = 0.5 # in Euros per year of age per week
-    start_date = Date.new(2020, 07)
+
+    start_date = Date.new(2021, 1)
+    # Actually started oct 2020, but stopped paying him after 2 months
 
     @credit = compute_credit(date_of_birth, allowance, start_date)
   end
