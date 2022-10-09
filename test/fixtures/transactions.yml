@@ -2,10 +2,12 @@
 
 deposit_5:
   amount: 5
+  comment: A good deposit
   deposit: true
   executor: JP Morgan
 
 withdrawal_7:
   amount: 7
+  comment: An OK withdrawal
   deposit: false
   executor: Crédit Agricole
