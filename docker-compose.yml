@@ -4,6 +4,16 @@ services:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/app:Z
+      - .:/app:z
     ports:
       - "3000:3000"
+    # stdin_open: true
+    # tty: true
+  test:
+    image: piggy-bank-2000_web
+    volumes:
+      - .:/app:z
+    environment:
+      RAILS_ENV: test
+    # stdin_open: true
+    # tty: true

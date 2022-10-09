@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  amount: 1
-  deposit: false
-  executor: MyString
+deposit_5:
+  amount: 5
+  deposit: true
+  executor: JP Morgan
 
-two:
-  amount: 1
+withdrawal_7:
+  amount: 7
   deposit: false
-  executor: MyString
+  executor: Crédit Agricole

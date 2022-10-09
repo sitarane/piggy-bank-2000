@@ -6,7 +6,7 @@ class BankController < ApplicationController
     start_date = Date.new(2021, 1)
     # Actually started oct 2020, but stopped paying him after 2 months
 
-    @credit = compute_credit(date_of_birth, allowance, start_date)
+    @credit = compute_credit(date_of_birth, allowance, start_date) + Transaction.total
   end
 
   private
