@@ -12,6 +12,7 @@
       </div>
       <div id="comment"> <%= transaction.comment %> </div>
       <div id="executor"> <%= transaction.executor %> </div>
+      <%= button_to "Delete", transaction, method: :delete %>
     </div>
 
   <% end %>

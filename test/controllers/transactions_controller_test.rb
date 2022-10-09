@@ -35,11 +35,11 @@ class TransactionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "should destroy transaction" do
-  #   assert_difference("Transaction.count", -1) do
-  #     delete transaction_url(@transaction)
-  #   end
-  #
-  #   assert_redirected_to transactions_url
-  # end
+  test "should destroy transaction" do
+    assert_difference("Transaction.count") do
+      delete transaction_url(@transaction)
+    end
+
+    assert_redirected_to transactions_url
+  end
 end

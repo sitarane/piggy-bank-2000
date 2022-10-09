@@ -30,8 +30,18 @@ class TransactionsController < ApplicationController
 
   # DELETE /transactions/1
   def destroy
-    @transaction.destroy
-    redirect_to transactions_url, notice: "Transaction was successfully destroyed."
+    new_transaction = Transaction.new(
+      amount: @transaction.amount,
+      comment: 'Deletes a previous transaction',
+      deposit: !@transaction.deposit,
+      executor: 'The system'
+    )
+    if new_transaction.save
+      redirect_to transactions_url, notice: "Transaction was successfully reverted."
+    else
+      render :index, status: :unprocessable_entity
+    end
+
   end
 
   private
