@@ -1,5 +1,7 @@
 class TransactionsController < ApplicationController
+  class AuthenticationError < StandardError; end
   before_action :set_transaction, only: %i[ show destroy ]
+  before_action :authenticate, only: :create
 
   # GET /transactions
   def index
@@ -19,7 +21,7 @@ class TransactionsController < ApplicationController
 
   # POST /transactions
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = Transaction.new(transaction_params.except(:secret_code))
 
     if @transaction.save
       redirect_to @transaction, notice: "Transaction was successfully created."
@@ -45,6 +47,10 @@ class TransactionsController < ApplicationController
   end
 
   private
+
+    def authenticate
+      raise AuthenticationError unless transaction_params[:secret_code] == ENV["SECRET_CODE"]
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
       @transaction = Transaction.find(params[:id])
@@ -52,6 +58,12 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:amount, :comment, :deposit, :executor)
+      params.require(:transaction).permit(
+        :amount,
+        :comment,
+        :deposit,
+        :executor,
+        :secret_code
+      )
     end
 end

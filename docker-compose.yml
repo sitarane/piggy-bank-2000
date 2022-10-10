@@ -9,11 +9,15 @@ services:
       - "3000:3000"
     # stdin_open: true
     # tty: true
+    env_file:
+      - .env
   test:
     image: piggy-bank-2000_web
     volumes:
       - .:/app:z
     environment:
       RAILS_ENV: test
+    env_file:
+      - .env
     # stdin_open: true
     # tty: true

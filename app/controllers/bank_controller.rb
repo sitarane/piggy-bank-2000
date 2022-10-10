@@ -1,10 +1,9 @@
 class BankController < ApplicationController
   def show
-    date_of_birth = Date.new(2013, 07, 04)
-    allowance = 0.5 # in Euros per year of age per week
+    date_of_birth = Date.strptime(ENV["DATE_OF_BIRTH"],"%Y-%m-%d")
+    allowance = ENV["ALLOWANCE"].to_f
+    start_date = Date.strptime(ENV["START_DATE"],"%Y-%m-%d")
 
-    start_date = Date.new(2021, 1)
-    # Actually started oct 2020, but stopped paying him after 2 months
 
     @credit = compute_credit(date_of_birth, allowance, start_date) + Transaction.total
   end
@@ -22,6 +21,6 @@ class BankController < ApplicationController
        # puts "date is #{date}, Damien is #{age}, he gets #{allowance_for_this_week} added to his stash of #{credit}"
        credit += allowance_for_this_week
     end
-    credit / 2 # Elsy gives him half
+    credit
   end
 end

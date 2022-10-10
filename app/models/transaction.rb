@@ -5,14 +5,14 @@ class Transaction < ApplicationRecord
   validates :comment, presence: true
 
   def self.total
-    sum = 0
+    total = 0
     all.each do |transaction|
       if transaction.deposit
-        sum += transaction.amount
+        total += transaction.amount
       else
-        sum -= transaction.amount
+        total -= transaction.amount
       end
     end
-    sum
+    total
   end
 end
