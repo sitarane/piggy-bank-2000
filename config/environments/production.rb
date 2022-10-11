@@ -75,4 +75,6 @@ Rails.application.configure do
 
   # RSOD told me to do this
   config.hosts << "bbb.kazrobo.com"
+
+  config.active_record.sqlite3_production_warning=false
 end
