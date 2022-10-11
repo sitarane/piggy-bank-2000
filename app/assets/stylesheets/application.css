@@ -46,3 +46,6 @@ div.transaction div#amount{
 div.transaction div#comment{
   flex-grow: 2;
 }
+div.cancelled div {
+  opacity: 0.5;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_08_162059) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_11_190741) do
   create_table "transactions", force: :cascade do |t|
     t.integer "amount"
     t.boolean "deposit"
@@ -18,6 +18,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_08_162059) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "comment"
+    t.integer "cancels_out_id"
+    t.index ["cancels_out_id"], name: "index_transactions_on_cancels_out_id"
   end
 
+  add_foreign_key "transactions", "transactions", column: "cancels_out_id"
 end

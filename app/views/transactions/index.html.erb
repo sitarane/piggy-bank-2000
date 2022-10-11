@@ -4,7 +4,7 @@
 
 <div id="transactions">
   <% @transactions.each do |transaction| %>
-    <div class="transaction">
+    <div class="transaction <%= 'cancelled' if transaction.cancels_out %>">
       <div id="date"> <%= transaction.created_at.to_date %> </div>
       <div id="amount">
         <%= '-' unless transaction.deposit %>
