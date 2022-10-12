@@ -33,8 +33,10 @@ class TransactionsController < ApplicationController
       other_transaction = @transaction.cancels_out
       if @transaction.created_at > other_transaction.created_at
         @transaction.destroy
+        raise UnprocessableEntity unless other_transaction.update(cancels_out: nil)
       else
-        raise UnprocessableEntity unless other_transaction.destroy
+        other_transaction.destroy
+        raise UnprocessableEntity unless @transaction.update(cancels_out: nil)
       end
       redirect_to transactions_url, notice: "Cancelation was successfully cancelled."
 
