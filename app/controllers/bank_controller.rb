@@ -14,12 +14,12 @@ class BankController < ApplicationController
     credit = 0
     ## He gets his money on Saturday date.wday == 6
     (start_date..Date.today).select{ |date| date.wday == 6 }.each do | date |
-       age = date.year - date_of_birth.year
-       age -= 1 if date < date_of_birth + age.years # for days before birthday
-       allowance_for_this_week = age * allowance
-       ## For debug:
-       # puts "date is #{date}, Damien is #{age}, he gets #{allowance_for_this_week} added to his stash of #{credit}"
-       credit += allowance_for_this_week
+      age = date.year - date_of_birth.year
+      age -= 1 if date < date_of_birth + age.years # for days before birthday
+      allowance_for_this_week = age * allowance
+      credit += allowance_for_this_week
+      ## For debug:
+      puts "date is #{date}, Damien is #{age}, he gets #{allowance_for_this_week} added to his stash of #{credit}"
     end
     credit
   end
