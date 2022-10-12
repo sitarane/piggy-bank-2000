@@ -34,7 +34,7 @@ class TransactionsController < ApplicationController
         other_transaction.destroy
         raise UnprocessableEntity unless @transaction.update(cancels_out: nil)
       end
-      redirect_to transactions_url, notice: "Cancelation was successfully cancelled."
+      redirect_to transactions_url, notice: "Transaction was successfully restored."
 
     else
     new_transaction = Transaction.new(
