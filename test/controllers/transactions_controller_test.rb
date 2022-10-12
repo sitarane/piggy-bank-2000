@@ -28,12 +28,7 @@ class TransactionsControllerTest < ActionDispatch::IntegrationTest
         }
     end
 
-    assert_redirected_to transaction_url(Transaction.last)
-  end
-
-  test "should show transaction" do
-    get transaction_url(@withdrawal)
-    assert_response :success
+    assert_redirected_to transactions_url
   end
 
   test "should revert transaction" do
