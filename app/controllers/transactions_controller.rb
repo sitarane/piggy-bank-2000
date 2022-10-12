@@ -10,10 +10,6 @@ class TransactionsController < ApplicationController
     @transactions = Transaction.all
   end
 
-  # GET /transactions/1
-  def show
-  end
-
   # GET /transactions/new
   def new
     @transaction = Transaction.new(transaction_params)
@@ -24,7 +20,7 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params.except(:secret_code))
     raise UnprocessableEntity unless @transaction.save
-    redirect_to @transaction, notice: "Transaction was successfully created."
+    redirect_to transactions_url, notice: "Transaction was successfully created."
   end
 
   # DELETE /transactions/1
