@@ -19,7 +19,7 @@ class BankController < ApplicationController
       allowance_for_this_week = age * allowance
       credit += allowance_for_this_week
       ## For debug:
-      puts "date is #{date}, Damien is #{age}, he gets #{allowance_for_this_week} added to his stash of #{credit}"
+      # puts "date is #{date}, Damien is #{age}, he gets #{allowance_for_this_week} added to his stash of #{credit}"
     end
     credit
   end
