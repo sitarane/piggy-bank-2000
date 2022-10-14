@@ -1,6 +1,6 @@
 version: "3.9"
 volumes:
-  - app
+  app:
 services:
   web:
     build: .
