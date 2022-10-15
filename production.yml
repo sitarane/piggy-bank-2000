@@ -1,15 +1,10 @@
 version: "3.9"
 volumes:
-  app:
+  db:
 services:
   web:
-    build: .
     volumes:
-      - app:/app:Z
-    ports:
-      - "3000:3000"
+      - db:/app/db:Z
     environment:
       RAILS_ENV: production
     restart: unless-stopped
-    env_file:
-      - .env
