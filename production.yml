@@ -3,8 +3,13 @@ volumes:
   db:
 services:
   web:
+    image: sitarane/piggy-bank-2000:1.0
     volumes:
       - db:/app/db:Z
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
     environment:
       RAILS_ENV: production
     restart: unless-stopped
