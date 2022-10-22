@@ -3,7 +3,7 @@ volumes:
   db:
 services:
   web:
-    image: sitarane/piggy-bank-2000:1.0
+    image: sitarane/piggy-bank-2000:1.1
     volumes:
       - db:/app/db:Z
     ports:
