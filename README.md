@@ -1,5 +1,5 @@
 # piggy-bank-2000
-Allowance for kids, but mre futuristic. Would have been a great dot-com bubble startup.
+Allowance for kids, but more futuristic. Would have been a great dot-com bubble startup.
 
 ## In a nutshell
 
