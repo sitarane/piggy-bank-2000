@@ -25,15 +25,16 @@ For example:
 > DATE_OF_BIRTH=2013-02-01  
 > START_DATE=2021-01-01 # on what date they got their first allowance
 
+## Build the container
+
+For running locally:
+
+> docker build --target dev -t localhost/piggy-bank-2000:dev .
+
+## Set up database
+
+> docker-compose run --rm web rails db:migrate
+
 ## Start the app
 
-> docker-compose up
-
-## Set up the database
-
-> docker-compose exec web bash
-
-And then in the container
-
-> rails db:create  
-> rails db:migrate
+> docker-compose up web
