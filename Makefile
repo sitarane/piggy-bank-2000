@@ -8,6 +8,8 @@ console:
 	podman-compose run --rm web rails console
 bash:
 	podman-compose run --rm web bash
+sh:
+	podman-compose run --rm web sh
 web:
 	podman-compose run --rm --service-ports web
 down:

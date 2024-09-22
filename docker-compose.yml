@@ -11,7 +11,7 @@ services:
     env_file:
       - .env
   test:
-    image: piggy-bank-2000_web
+    image: localhost/piggy-bank-2000:dev
     volumes:
       - .:/app:z
     environment:
