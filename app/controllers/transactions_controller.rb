@@ -10,6 +10,10 @@ class TransactionsController < ApplicationController
     @transactions = Transaction.all
   end
 
+  # GET /transaction/1
+  def show
+  end
+
   # GET /transactions/new
   def new
     @transaction = Transaction.new(transaction_params)
