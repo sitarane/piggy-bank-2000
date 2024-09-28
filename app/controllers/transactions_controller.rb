@@ -8,6 +8,7 @@ class TransactionsController < ApplicationController
   # GET /transactions
   def index
     @transactions = Transaction.all
+    @hide_transactions_menu_item = true
   end
 
   # GET /transaction/1

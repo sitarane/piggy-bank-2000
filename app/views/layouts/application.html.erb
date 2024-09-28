@@ -14,7 +14,7 @@
        <header>
       <nav>
         <%= link_to 'Bank', root_path unless controller_name == "bank" %>
-        <%= link_to 'All transactions', transactions_path %>
+        <%= link_to 'All transactions', transactions_path unless @hide_transactions_menu_item %>
       </nav>
     </header>
     <main>
