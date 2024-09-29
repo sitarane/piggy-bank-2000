@@ -1,5 +1,5 @@
 <div id=credit-container>
-  <div id='credit'><%= @credit %> €</div>
+  <div id='credit'><%= @credit %> <%= ENV["CURRENCY"]%></div>
   <div id='buttons'>
     <%= button_to 'Withdraw',
                   new_transaction_path,
