@@ -33,8 +33,8 @@ For running locally:
 
 ## Set up database
 
-> docker-compose run --rm web rails db:migrate
+> docker compose run --rm web rails db:migrate
 
 ## Start the app
 
-> docker-compose up web
+> docker compose up web
