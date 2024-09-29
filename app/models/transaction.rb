@@ -18,4 +18,25 @@ class Transaction < ApplicationRecord
     end
     total
   end
+
+  def self.get_last_five
+    candidates = Transaction.last(10)
+    transactions = []
+    count = 0
+    until candidates.empty? || count == 5
+      transaction = candidates.last
+      original = transaction.get_original
+      transactions << original
+      candidates -= [transaction, original]
+      count += 1
+    end
+    return transactions
+  end
+
+  def get_original
+    other_one = self.cancels_out
+    return self unless other_one
+    return self if self.created_at < other_one.created_at
+    return other_one
+  end
 end

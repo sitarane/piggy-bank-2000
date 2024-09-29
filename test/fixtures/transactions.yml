@@ -11,3 +11,20 @@ withdrawal_7:
   comment: An OK withdrawal
   deposit: false
   executor: Crédit Agricole
+
+deposit_12:
+  amount: 12
+  comment: It's your birthday!
+  deposit: true
+  executor: Grandma
+
+deposit_2:
+  amount: 2
+  deposit: true
+  executor: Grandma
+
+withdrawal_3:
+  amount: 3
+  comment: An OK withdrawal
+  deposit: false
+  executor: Crédit Agricole

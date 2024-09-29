@@ -7,7 +7,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions
   def index
-    @transactions = Transaction.all.reverse_order
+    @transactions = Transaction.get_last_five
     @hide_transactions_menu_item = true
   end
 
