@@ -1,5 +1,9 @@
 <h1>Transactions</h1>
 
+<% if @start_date < 3.months.ago %>
+  <%= render "graph" %>
+<% end %>
+
 <div id="transactions">
   <% @transactions.each do |transaction| %>
     <% next if transaction.cancels_out && transaction.cancels_out.created_at < transaction.created_at %>
@@ -13,6 +17,5 @@
       <div id="executor"> <%= transaction.executor %> </div>
       <%= button_to "#{transaction.cancels_out ? 'Restore' : 'Revert'}", transaction, method: :delete %>
     </div>
-
   <% end %>
 </div>

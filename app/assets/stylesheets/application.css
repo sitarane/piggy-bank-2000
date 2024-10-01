@@ -14,6 +14,8 @@
  *= require_self
  */
 
+ /* Bank */
+ 
  div#credit-container {
    margin-top: 2em;
    display: flex;
@@ -31,6 +33,9 @@
 button {
   margin: 5px;
 }
+
+/* Transaction table */
+
 div#transactions {
   display: flex;
   flex-direction: column;
@@ -48,4 +53,19 @@ div.transaction div#comment{
 }
 div.cancelled div {
   opacity: 0.5;
+}
+
+/* graph */
+
+#graph {
+  margin: 3rem;
+  height: 6rem;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+.month {
+  width: 8.33%;
+  background-color: green ;
 }

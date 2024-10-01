@@ -7,9 +7,11 @@ class Transaction < ApplicationRecord
   validates :executor, presence: true
   validates :comment, presence: true
 
-  def self.total
+  scope :up_to, ->(date) { where("created_at < ?", date) }
+
+  def self.total(on = Time.now)
     total = 0
-    all.each do |transaction|
+    up_to(on).each do |transaction|
       if transaction.deposit
         total += transaction.amount
       else

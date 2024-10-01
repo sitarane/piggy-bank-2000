@@ -18,6 +18,14 @@ class CreditCalculatorTest < ActiveSupport::TestCase
       assert_equal 20, CreditCalculator.new(date_of_birth, allowance, start_date).call
     end
   end
+  test '10 years old that started getting .2€/yoa/w 10 weeks ago has 10€ 5 weeks ago' do
+    date_of_birth = DateTime.new(2006, 6, 24)
+    allowance = 0.2
+    start_date = date_of_birth + 10.years + 2.months
+    travel_to start_date + 10.weeks do
+      assert_equal 10, CreditCalculator.new(date_of_birth, allowance, start_date, 5.weeks.ago).call
+    end
+  end
   test '7 years old that started getting 0.5/yoa/w two weeks ago,\
     but their birthday was last week got 3 + 3.5 = 6.5€' do
     date_of_birth = DateTime.new(2012, 11, 5)

@@ -2,6 +2,7 @@ require "test_helper"
 
 class TransactionTest < ActiveSupport::TestCase
   setup do
+    @date = Time.now
     @a_deposit = Transaction.create(
       amount: 10,
       comment: "I'm a transaction!",
@@ -17,8 +18,16 @@ class TransactionTest < ActiveSupport::TestCase
     )
   end
 
+  test 'up_to scope' do
+    transactions = Transaction.up_to @date
+    assert_includes transactions, transactions(:deposit_5)
+    assert_not_includes transactions, @a_deposit
+  end
+
   test 'Transaction sum' do
     assert_equal 9, Transaction.total
+    assert_equal 9, Transaction.total(@date)
+    assert_equal 0, Transaction.total(1.year.ago)
   end
 
   test 'get_original' do
