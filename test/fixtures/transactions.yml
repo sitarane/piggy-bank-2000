@@ -5,26 +5,31 @@ deposit_5:
   comment: A good deposit
   deposit: true
   executor: JP Morgan
+  created_at: <%= 3.days.ago %>
 
 withdrawal_7:
   amount: 7
   comment: An OK withdrawal
   deposit: false
   executor: Crédit Agricole
+  created_at: <%= 33.days.ago %>
 
 deposit_12:
   amount: 12
   comment: It's your birthday!
   deposit: true
   executor: Grandma
+  created_at: <%= 51.days.ago %>
 
 deposit_2:
   amount: 2
   deposit: true
   executor: Grandma
+  created_at: <%= 73.days.ago %>
 
 withdrawal_3:
   amount: 3
   comment: An OK withdrawal
   deposit: false
   executor: Crédit Agricole
+  created_at: <%= 81.days.ago %>

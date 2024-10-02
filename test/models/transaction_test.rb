@@ -26,8 +26,16 @@ class TransactionTest < ActiveSupport::TestCase
 
   test 'Transaction sum' do
     assert_equal 9, Transaction.total
-    assert_equal 9, Transaction.total(@date)
+    assert_equal 4, Transaction.total(5.days.ago)
+    assert_equal 11, Transaction.total(40.days.ago)
     assert_equal 0, Transaction.total(1.year.ago)
+  end
+
+  test 'last_year_monthly_history' do
+    assert_equal(
+      [161.0, 144.0, 124.0, 113.0, 101.0, 86.0, 74.0, 62.0, 47.0, 35.0, 23.0, 8.0],
+      Transaction.last_year_monthly_history
+    )
   end
 
   test 'get_original' do
