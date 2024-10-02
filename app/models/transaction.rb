@@ -22,7 +22,7 @@ class Transaction < ApplicationRecord
   end
 
   def self.get_last_five
-    candidates = Transaction.last(10)
+    candidates = Transaction.includes(:cancels_out).last(10)
     transactions = []
     count = 0
     until candidates.empty? || count == 5
@@ -33,6 +33,16 @@ class Transaction < ApplicationRecord
       count += 1
     end
     return transactions
+  end
+
+  def self.last_year_monthly_history
+    history = []
+    12.times do |index|
+      time = index.months.ago
+      value =  CreditCalculator.new(DATE_OF_BIRTH, ALLOWANCE, START_DATE, time.to_date).call + Transaction.total(time)
+      history << value
+    end
+    return history
   end
 
   def get_original

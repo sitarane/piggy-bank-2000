@@ -7,10 +7,8 @@ class TransactionsController < ApplicationController
 
   # GET /transactions
   def index
-    @date_of_birth = Date.strptime(ENV["DATE_OF_BIRTH"],"%Y-%m-%d")
-    @allowance = ENV["ALLOWANCE"].to_f
-    @start_date = Date.strptime(ENV["START_DATE"],"%Y-%m-%d")
     @transactions = Transaction.get_last_five
+    @last_year_monthly_history = Transaction.last_year_monthly_history
     @hide_transactions_menu_item = true
   end
 

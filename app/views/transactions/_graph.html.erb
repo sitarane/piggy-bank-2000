@@ -1,5 +1,5 @@
 <div id="graph">
-  <% last_year_monthly_history.each_with_index do |monthly_value, index| %>
+  <% @last_year_monthly_history.each_with_index do |monthly_value, index| %>
     <div id=<%= index.to_s + "-month-ago" %> class='month' style=<%= month_collumn_height_string(monthly_value) %>>
     </div>
   <% end %>
