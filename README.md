@@ -20,6 +20,7 @@ The app expects the following variables: SECRET_CODE, ALLOWANCE, DATE_OF_BIRTH a
 
 For example:
 
+> LANGUAGE=en
 > SECRET_CODE=password  
 > ALLOWANCE=0.25 # euros per year of age  
 > DATE_OF_BIRTH=2013-02-01  

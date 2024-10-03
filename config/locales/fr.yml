@@ -29,27 +29,27 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  all_transactions: All transactions
+fr:
+  all_transactions: Toutes les transactions
   activerecord:
     attributes:
       transaction:
-        amount: How much
-        comment: Comment
-        executor: Executor
-        secret_code: Secret code
-  bank: Bank
-  deposit: Deposit
+        amount: Combien
+        comment: Commentaire
+        executor: Commanditaire
+        secret_code: Code secret
+  bank: Banque
+  deposit: Déposer
   helpers:
     submit:
-      create: "Create %{model}"
-      submit: "Save %{model}"
-  new_deposit: New deposit
-  new_withdrawal: New withdrawal
-  restore: Restore
-  revert: Revert
-  transaction_created: Transaction was successfully created.
-  transaction_reverted: Transaction was successfully reverted.
-  transaction_restored: Transaction was successfully restored.
+      create: "Créer %{model}"
+      submit: "Sauvegarder %{model}"
+  new_deposit: Nouveau dépot
+  new_withdrawal: Nouveau retrait
+  restore: Rétablir
+  revert: Annuler
+  transaction_created: La transaction a été créée
+  transaction_reverted: La transaction a été annulée
+  transaction_restored: La transaction originale à été rétablie
   transactions: Transactions
-  withdraw: Withdraw
+  withdraw: Retirer

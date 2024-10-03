@@ -1,7 +1,12 @@
-<h1>Transactions</h1>
+<h1><%=t(:transactions)%></h1>
 
 <% if START_DATE < 3.months.ago %>
-  <%= render "graph" %>
+  <div id="graph">
+    <% @last_year_monthly_history.each_with_index do |monthly_value, index| %>
+      <div id=<%= index.to_s + "-month-ago" %> class='month' style=<%= month_collumn_height_string(monthly_value) %>>
+      </div>
+    <% end %>
+</div>
 <% end %>
 
 <div id="transactions">
@@ -15,7 +20,7 @@
       </div>
       <div id="comment"> <%= transaction.comment %> </div>
       <div id="executor"> <%= transaction.executor %> </div>
-      <%= button_to "#{transaction.cancels_out ? 'Restore' : 'Revert'}", transaction, method: :delete %>
+      <%= button_to "#{transaction.cancels_out ? t(:restore) : t(:revert)}", transaction, method: :delete %>
     </div>
   <% end %>
 </div>

@@ -1,11 +1,11 @@
 <div id=credit-container>
   <div id='credit'><%= @credit %> <%= ENV["CURRENCY"]%></div>
   <div id='buttons'>
-    <%= button_to 'Withdraw',
+    <%= button_to t(:withdraw),
                   new_transaction_path,
                   method: :get,
                   params: { transaction: { deposit: false } } %>
-    <%= button_to 'Deposit',
+    <%= button_to t(:deposit),
                   new_transaction_path,
                   method: :get,
                   params: { transaction: { deposit: true } } %>

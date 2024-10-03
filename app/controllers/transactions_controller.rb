@@ -26,7 +26,7 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params.except(:secret_code))
     raise UnprocessableEntity unless @transaction.save
-    redirect_to transactions_url, notice: "Transaction was successfully created."
+    redirect_to transactions_url, notice: t(:transaction_created)
   end
 
   # DELETE /transactions/1
@@ -40,7 +40,7 @@ class TransactionsController < ApplicationController
         other_transaction.destroy
         raise UnprocessableEntity unless @transaction.update(cancels_out: nil)
       end
-      redirect_to transactions_url, notice: "Transaction was successfully restored."
+      redirect_to transactions_url, notice: t(:transaction_restored)
 
     else
     new_transaction = Transaction.new(
@@ -52,7 +52,7 @@ class TransactionsController < ApplicationController
     )
     raise UnprocessableEntity unless new_transaction.save
     raise UnprocessableEntity unless @transaction.update(cancels_out: new_transaction)
-    redirect_to transactions_url, notice: "Transaction was successfully reverted."
+    redirect_to transactions_url, notice: t(:transaction_reverted)
     end
   end
 
