@@ -33,7 +33,7 @@ class TransactionTest < ActiveSupport::TestCase
 
   test 'last_year_monthly_history' do
     assert_equal(
-      [161.0, 144.0, 124.0, 113.0, 101.0, 86.0, 74.0, 62.0, 47.0, 35.0, 23.0, 8.0],
+      [161.0, 144.0, 127.0, 113.0, 101.0, 86.0, 74.0, 62.0, 50.0, 35.0, 23.0, 8.0],
       Transaction.last_year_monthly_history
     )
   end

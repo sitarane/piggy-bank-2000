@@ -1,4 +1,4 @@
-<h1><%="New #{@deposit ? 'deposit' : 'withdrawal'}"%></h1>
+<h1><%="#{@deposit ? t(:new_deposit) : t(:new_withdrawal)}"%></h1>
 
 <%= form_with(model: @transaction) do |form| %>
   <% if @transaction.errors.any? %>
